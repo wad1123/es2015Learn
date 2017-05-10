@@ -84,7 +84,7 @@
             
 		destruction相当于形式赋值，赋值更加灵活了；
         
-##String Extends 字符串扩展 
+## String Extends 字符串扩展 
 
 *includes()*&nbsp;&nbsp;&nbsp;	判断字符串中是否包含特定的子串；
 *statsWith()*&nbsp;&nbsp;&nbsp;	判断字符串是否以特定的子串开始；
@@ -95,7 +95,7 @@
             console.log( string.includes( 'ES2015',6 ) );//true
             console.log( string.includes( 'ES2015',7 ) );//false
         
-  **includes()**中包含两个参数，第一个表示要查看的字符串(string)，第二个表示从第几个字符开始查找(number)；
+  **includes**中包含两个参数，第一个表示要查看的字符串(string)，第二个表示从第几个字符开始查找(number)；
   查找过程中不会匹配第(number)个字符，而是从第(number+1)个字符开始匹配；
   返回boolean值；
   		
