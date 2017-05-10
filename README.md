@@ -85,6 +85,7 @@
 		destruction相当于形式赋值，赋值更加灵活了；
         
 ##String Extends 字符串扩展 
+
 *includes()*&nbsp;&nbsp;&nbsp;	判断字符串中是否包含特定的子串；
 *statsWith()*&nbsp;&nbsp;&nbsp;	判断字符串是否以特定的子串开始；
 *endsWith()*&nbsp;&nbsp;&nbsp;	判断字符串是否以特定的子串结束；
