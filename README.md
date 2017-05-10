@@ -87,8 +87,11 @@
 ## String Extends 字符串扩展 
 
 *includes()*&nbsp;&nbsp;&nbsp;	判断字符串中是否包含特定的子串；
+- - -
 *statsWith()*&nbsp;&nbsp;&nbsp;	判断字符串是否以特定的子串开始；
+- - -
 *endsWith()*&nbsp;&nbsp;&nbsp;	判断字符串是否以特定的子串结束；
+___
 		
         let string = 'hello ES2015~';
             console.log( string.includes( 'ES2015' ) );//true
@@ -96,15 +99,108 @@
             console.log( string.includes( 'ES2015',7 ) );//false
         
   **includes**中包含两个参数，第一个表示要查看的字符串(string)，第二个表示从第几个字符开始查找(number)；
+- - -
   查找过程中不会匹配第(number)个字符，而是从第(number+1)个字符开始匹配；
+- - -
   返回boolean值；
+- - -
   		
         let url = 'baidu.com/index.html';
         console.log( url.startsWith( 'index',10 ) );//true
         console.log( url.startsWith( 'index',11 ) );//false
         
   **startsWith**中也包含两个参数，第一个表示要查找的子串(string)，第二个表示要要从第几个开始查找( nmber );
+- - -
   查找过程中不会匹配第(number)个字符，而是从第(number+1)个字符开始匹配；
+- - -
   返回boolean值；
+- - -
   
   **endsWith**的用法与前者相同；
+  
+##### *String Model 模板字符串*
+- - -
+		let json = {
+            name:'zhangsan',
+            age:18,
+            pet:'dog'
+        };
+        let info = function( info ){ return info; }
+        let strModel = `
+            <div><span>${json.name}</span><span>${ json.age }</span>	<span>${ 100%35 }</span></div>
+            <p>${ info( 'hello ES2015~' ) }</p>
+        `;
+        console.log( strModel );
+        
+模板字符串以 ==··== 包裹html片段，并在==${}==中插入表达式(express String)，而不是语句，否则不会生效；(*不能以分号结尾*)；
+
+## Function Extends 函数扩展
+- - -
+#### *函数参数默认值*
+- - -
+        function showInfo( info = 'hello' ){
+            console.log( info );
+        }
+
+        showInfo();//'hello'
+        
+函数的参数可被指定为默认的值，在函数没有传递参数时，函数会使用默认参数值；
+- - -
+函数参数默认值的设置也可采用解构赋值的形式
+- - -
+		let showInfo = function( { info = 'zhangsan' } ){
+            console.log( info );
+        }
+        showInfo( {} );
+        
+        let showInfo = function( { info = 'zhangsan' } = {} ){
+            console.log( info );
+        }
+        showInfo();
+        showInfo( { info:'lisi' } );
+        
+        let showInfo = function( { info:mes = 'zhangsan' } = {} ){
+            console.log( mes );
+        }
+        showInfo({ info:'lisi' });
+        
+#### *rest参数*
+- - -
+		let showInfo = function( ...rest ){
+            console.log( rest );
+        }
+        showInfo( 1,2,3,4,5 );//[1,2,3,4,5]
+        
+**rest**在此处的作用类似于函数内部的arguments对象；
+- - -
+其还可以这么用：
+- - -
+		let showInfo = function( a...rest ){
+            console.log( rest );
+        }
+        showInfo( 1,2,3,4,5 );//[2,3,4,5]
+- - -
+这样rest就可以将第一个参数独立出来；
+- - -
+当然它也可以反向利用
+- - -
+		let arr = [ 'zhangsan','lisi' ];
+        let showInfo = function( name1,name2 ){
+            console.log( name1,name2 );
+        }
+        showInfo( ...arr );//'zhangsan','lisi'
+- - -
+这种做法很像是 **`showInfo.apply( null,arr )`**
+- - -
+##### `...`   扩展运算符
+
+		let numArr = [ 1,2,3 ],
+        strArr = [ 'name','age' ],
+        newArr = [ ...numArr,...strArr ],
+        arr = [];
+        arr.push( ...newArr );
+
+        console.log( newArr ); //[ 1, 2, 3, 'name', 'age' ]
+        console.log( arr );// [ 1, 2, 3, 'name', 'age' ]
+- - -
+`...`运算符可以将数组分解成其每一项的值；
