@@ -27,3 +27,25 @@
 	[ x,y ] = [ y,x ];
 	console.log( x,y )
 }
+{
+	let json = {
+		name:'xiaoming',
+		age:25,
+		pet:{
+			name:'doggie',
+			age:2
+		}
+	}
+	let { age } = json;
+	console.log( age );
+	let { pet } = json;
+	console.log( pet );
+}
+{
+	let { a = 1,b = 2 } = {};
+	console.log( a,b );
+}
+{
+	let { num:number } = { num : 100 };
+	console.log( number );
+}
