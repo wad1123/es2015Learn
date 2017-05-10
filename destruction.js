@@ -22,3 +22,8 @@
 	let [ a = 1,b = 2, c = 3,d = {} ] = [];
 	console.log( a,b,c,d );
 }
+{
+	let [ x,y ] = [ 1,2 ];
+	[ x,y ] = [ y,x ];
+	console.log( x,y )
+}
