@@ -28,23 +28,58 @@
 			console.log( a,b,c,d );
             
             *解构赋值中 let 声明必须紧跟赋值操作
+            
             let [num];//error
             
             *解构赋值可以做到这些事
+            
             let [ x,y ] = [ 1,2 ];
             [ x,y ] = [ y,x ];
             console.log( x,y )//2,1
+            
             *两者的值交换了；极大解化了赋值操作；
             
             *对象（键值对）的解构中，{}中的逗号两侧必须有参数（变量）
+            
             let { a, } = {a:1};//error
+            
             *对象的解构赋值中也可以也设置默认值
+            
             let { a = 1,b =2 } = {};//1,2
             
             *对象的解构赋值中支持一种操作--即修改默认的参数名（变量名）；
+            
             let { num:number } = { num : 100 };
 			console.log( number );//100
+            
             *z这样法必须使用修改后的变量名，否则会报错
+            
             console.log( num );//error
+            
+            *对象的解构赋值中还可以做到这些事
+            
+           class Func {
+                constructor(name){
+                    this.name = name;
+                }	
+                sayHello(){
+                    console.log( 'hello~' );
+                }
+            }
+
+            let { name:n } = new Func( 'zhangsan' );
+            let { sayHello:hi } = new Func( 'noname' );
+            console.log( hi );//[Function: sayHello]
+            console.log( n )//'zhangsan'
+            
+            *解构赋值可以直接拷贝对象原型方法的引用；
+            
+            let { forEach:each } = new Array;
+			console.log( each );//[Function: forEach]
+            
+            *字符串也可以解构赋值
+            
+            let [ a,b,c,d,e ] = 'hello';
+			console.log( a,b,c,d,e );//'h' 'e' 'l' 'l' 'o'
             
 		destruction相当于形式复制，赋值更加灵活了；

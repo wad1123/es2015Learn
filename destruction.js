@@ -49,3 +49,26 @@
 	let { num:number } = { num : 100 };
 	console.log( number );
 }
+{
+	class Func {
+		constructor(name){
+			this.name = name;
+		}	
+		sayHello(){
+			console.log( 'hello~' );
+		}
+	}
+
+	let { name:n } = new Func( 'zhangsan' );
+	let { sayHello:hi } = new Func( 'noname' );
+	console.log( hi );
+	console.log( n )
+}
+{
+	let [ a,b,c,d,e ] = 'hello';
+	console.log( a,b,c,d,e );
+}
+{
+	let { forEach:each } = new Array;
+	console.log( each );
+}
