@@ -14,3 +14,11 @@
 	let [ a,,b ] = [ 1,2 ];
 	console.log( a,b )
 }
+{
+	let [ a = 123,b, c ] = [ ,456,987 ];
+	console.log( a,b,c );
+}
+{
+	let [ a = 1,b = 2, c = 3,d = {} ] = [];
+	console.log( a,b,c,d );
+}
